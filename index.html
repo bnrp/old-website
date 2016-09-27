@@ -1,14 +1,79 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
+<head>
     
-        <title> Temporary Title </title>
+    <title> Temporary Title </title>
   
-    </head>
+</head>
     
-    <body>
+<body>
     
-    </body>
+</body>
 
+<script>
+
+var canvas = document.getElementById("canvas");
+
+var dia1 = canvas.getContext('2d');
+
+var dia1top = 0;
+
+var dia2 = canvas.getContext('2d');
+
+var dia2top = 0;
+
+var dia3;
+
+var dia4;
+
+var dia5;
+
+var w = window.innerWidth;
+
+var h = window.innerHeight;
+
+function draw(){
+
+	dia1.beginPath();
+
+	dia1.lineWidth = 5;
+	if(blck){
+	dia1.strokeStyle = "#000000";
+	}else{
+	dia1.strokeStyle = "#FFFFFF";
+	}
+	dia1.moveTo( 150, 75 + dia1top);
+	dia1.lineTo( 150 + dia1top, 75);
+	dia1.lineTo( 150, 75 - dia1top);
+	dia1.lineTo( 150 - dia1top, 75);
+	//dia1.lineTo( 50 , 100);
+//alert( w + "," + h + "," + dia1top + "," + dia1bot );
+	dia1.closePath();
+	dia1.stroke();
+}
+
+var blck = true;
+
+function start(){
+
+setInterval(function(){
+		
+		dia1top+=.5;
+		
+		if(dia1top >= 221){
+			dia1top = 0;
+			if(blck){
+				blck = false;
+			}else{
+				blck = true;
+			}
+		}
+		
+		draw();
+
+}, 1)}
+
+</script>
+    
 </html>
