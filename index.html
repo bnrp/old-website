@@ -64,16 +64,16 @@ var dia5;
 var w = window.innerWidth;
 
 var h = window.innerHeight;
-
+xa
 function draw(){
 
 	dia1.beginPath();
 
 	dia1.lineWidth = 5;
 	if(blck){
-	dia1.strokeStyle = "#000000";
+	dia1.strokeStyle = "#00FF08";
 	}else{
-	dia1.strokeStyle = "#FFFFFF";
+	dia1.strokeStyle = "#FF00ee";
 	}
 	dia1.moveTo( 150, 75 + dia1top);
 	dia1.lineTo( 150 + dia1top, 75);
@@ -91,7 +91,7 @@ function start(){
 
 setInterval(function(){
 		
-		dia1top+=30;
+		dia1top+=.5;
 		
 		if(dia1top >= 221){
 			dia1top = 0;
@@ -104,7 +104,7 @@ setInterval(function(){
 		
 		draw();
 
-}, 1)}
+}, .01)}
 
 </script>
     
