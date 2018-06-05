@@ -8,7 +8,7 @@
   src: url(monaco/monaco.ttf) format("truetype")
 }
 
-h1 { font-family: "monaco", sans-serif }
+h1 { font-family: "monofur", sans-serif }
 
-body { font-family: "monaco", sans-serif;
+body { font-family: "monofur", sans-serif;
        background-color: #676d5f }
