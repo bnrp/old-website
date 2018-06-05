@@ -2,6 +2,13 @@
   font-family: "monofur";
   src: url(monofur/monof55.ttf) format("truetype");
 }
-h1 { font-family: "monofur", sans-serif }
-body { font-family: "monofur", sans-serif;
-       background-color: #4d5247 }
+
+@font-face {
+  font-family: "monaco";
+  src: url(monaco/monaco.ttf) format("truetype")
+}
+
+h1 { font-family: "monaco", sans-serif }
+
+body { font-family: "monaco", sans-serif;
+       background-color: #676d5f }
