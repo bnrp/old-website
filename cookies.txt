@@ -1,0 +1,4 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.yenerator.com	TRUE	/	FALSE	1999999999	__cfduid	d53efee9d58dc451795cdafdfb13511731528165681
+
