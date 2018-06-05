@@ -155,7 +155,7 @@ template { display: none; }
 
 #ye-gen .container img { width: 100%; display: block; }
 
-#ye-gen .container .area { resize: none; outline: none; border: 0; display: block; width: 26%; padding: 0; position: absolute; top: 0; font-size: 24px; text-align: center; color: #29F74E; letter-spacing: 1px; line-height: 1.3; }
+#ye-gen .container .area { resize: none; outline: none; border: 0; display: block; width: 26%; padding: 0; position: absolute; top: 0; font-size: 24px; text-align: center; color: #ff69b4; letter-spacing: 1px; line-height: 1.3; }
 
 @media all and (max-width: 980px) { #ye-gen .container .area { font-size: 19px; } }
 
