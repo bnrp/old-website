@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>
+
+Chat
+
+</title>
+
+<style>
+	#sub{
+		outline: solid;
+		color: gray;
+		background-color: #F90;
+		-webkit-transition-duration: 0.8s;
+		-moz-transition-duration: 0.8s;
+		-o-transition-duration: 0.8s;
+		transition-duration: 0.8s;
+		-webkit-transition-property: -webkit-transform;
+		-moz-transition-property: -moz-transform;
+		-o-transition-property: -o-transform;
+		transition-property: transform;
+		overflow:hidden;
+	}
+	#sub:hover{
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+	#chat{
+		background-color: #F90; 
+		appearance: normal;
+		overflow: auto;
+		height: 90%;
+	}
+	.footer{
+		position: static;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		-moz-box-sizing: border-box;
+		-o-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	body {
+		width: 100%;
+		height: 100%;
+		font-family: "helvetica neue", helvetica, arial, sans-serif;
+		font-size: 13px;
+		text-align: center;
+		background: #333 url('http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/low_contrast_linen.png');
+	}
+
+	
+</style>
+
+<script>
+
+var title;
+
+function checkCookie(){
+	var func = update();
+	var run = setInterval(function (){
+	var xhr = new XMLHttpRequest;
+
+	document.getElementById('message').addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+			postMes();
+        }
+    });
+
+	if(window.XMLHttpRequest){
+
+		xhr = new XMLHttpRequest();
+
+	}else if(window.ActiveXObject){
+
+		xhr = new ActiveXObject("Msxml2.XMLHTTP");
+
+	}else{
+
+		throw new Error("Ajax is not supported by this browser");
+
+	}
+
+				
+
+	xhr.onreadystatechange = function(){
+
+		if(xhr.readyState === 4){
+
+			if(xhr.status == 200 && xhr.status < 300){
+
+				document.getElementById('chat').innerHTML = xhr.responseText;
+
+			}
+
+		}
+
+	}
+
+	
+
+	xhr.open('POST', 'update.php');
+
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	xhr.send();
+	
+	var objDiv = document.getElementById("chat");
+	
+	objDiv.scrollTop = objDiv.scrollHeight;
+	
+}, 1000);
+	
+	var username = getCookie("username");
+
+	if(username != ""){
+		getMess();
+
+		title = username; 
+
+	}else{
+
+		window.location.href = "http://mrsawyer.info/students2/ben/login/loginpage.html";
+
+	}
+
+}
+
+
+
+function getCookie(cname) {
+
+    var name = cname + "=";
+
+    var ca = document.cookie.split(';');
+
+    for(var i=0; i<ca.length; i++) {
+
+        var c = ca[i];
+
+        while (c.charAt(0)==' ') c = c.substring(1);
+
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+
+    }
+
+    return "";
+
+}
+
+
+
+function delCookie(){
+
+	if(title != "nobody"){
+
+		document.cookie = "username=" + title + "; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/students2/ben/chat/";
+
+	}
+
+}
+
+
+
+function postMes(){
+
+	var xhr = new XMLHttpRequest;
+
+	var mess = document.getElementById("message").value;
+	document.getElementById('message').value = "";
+	title = getCookie("username");
+
+	if(mess == "clearall" && title == "ben"){
+		
+		xhr.open('POST', 'clear.php');
+		xhr.send();
+		
+	}else{
+	
+	if(window.XMLHttpRequest){
+
+		xhr = new XMLHttpRequest();
+
+	}else if(window.ActiveXObject){
+
+		xhr = new ActiveXObject("Msxml2.XMLHTTP");
+
+	}else{
+
+		throw new Error("Ajax is not supported by this browser");
+
+	}
+
+				
+
+	xhr.onreadystatechange = function(){
+
+		if(xhr.readyState === 4){
+
+			if(xhr.status == 200 && xhr.status < 300){
+
+				document.getElementById('chat').innerHTML = xhr.responseText;
+
+			}
+
+		}
+
+	}
+
+				
+
+	xhr.open('POST', 'chat.php');
+
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	xhr.send("username=" + title + "&mess=" + mess);
+	
+	}
+
+}
+
+
+
+function getMess(){
+
+	var xhr = new XMLHttpRequest;
+
+	
+
+	if(window.XMLHttpRequest){
+
+		xhr = new XMLHttpRequest();
+
+	}else if(window.ActiveXObject){
+
+		xhr = new ActiveXObject("Msxml2.XMLHTTP");
+
+	}else{
+
+		throw new Error("Ajax is not supported by this browser");
+
+	}
+
+				
+
+	xhr.onreadystatechange = function(){
+
+		if(xhr.readyState === 4){
+
+			if(xhr.status == 200 && xhr.status < 300){
+
+				document.getElementById('chat').innerHTML = xhr.responseText;
+
+			}
+
+		}
+
+	}
+
+	
+
+	xhr.open('POST', 'update.php');
+
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	xhr.send();
+}
+
+function update(){
+	var xhr = new XMLHttpRequest;
+
+	
+
+	if(window.XMLHttpRequest){
+
+		xhr = new XMLHttpRequest();
+
+	}else if(window.ActiveXObject){
+
+		xhr = new ActiveXObject("Msxml2.XMLHTTP");
+
+	}else{
+
+		throw new Error("Ajax is not supported by this browser");
+
+	}
+
+				
+
+	xhr.onreadystatechange = function(){
+
+		if(xhr.readyState === 4){
+
+			if(xhr.status == 200 && xhr.status < 300){
+
+				document.getElementById('chat').innerHTML = xhr.responseText;
+
+			}
+
+		}
+
+	}
+
+	
+
+	xhr.open('POST', 'update.php');
+
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	xhr.send();
+}
+
+</script>
+
+</head>
+
+<body onUnload="delCookie()" onLoad="checkCookie()">
+
+<div id="chat"></div>
+
+<input name="message" class="footer" type="text" id="message" size="115">
+
+<a id="sub" class="footer" onClick="postMes()">Submit</a>
+
+<script>
+//http://codepen.io/benague/pen/bLBCd
+</script>
+</body>
+
+</html>

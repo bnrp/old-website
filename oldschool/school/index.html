@@ -1,0 +1,171 @@
+ <!DOCTYPE html> 
+
+<html><head> 
+
+<meta charset="utf-8"> 
+
+<title> 
+
+Ben R 
+
+</title> 
+
+<style>
+
+	* { margin:0px; padding:0px; } 
+
+
+
+	html, body { width:100%; height:100%; } 
+
+
+
+	canvas { display:block;}
+
+	h1{color: blue}
+	h2{color: blue}
+
+	body {
+
+    margin-top: -20px;
+
+    padding-top: -20px;
+
+	padding-right: -20px;
+
+	margin-right: 20px;
+
+	}
+
+
+
+	canvas {position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1; overflow: hidden;}
+
+		
+
+	h1{font-size: 50px; overflow: hidden;}
+
+	#size{font-color: white}
+
+	div {
+
+		margin: 25px;
+
+		position: absolute;
+
+		top: 0px;
+
+
+	} 
+
+</style>
+
+</head> 
+
+<body onLoad="start()"> 
+
+<div>
+
+<h1>Ben's Page</h1>
+
+<h2>Projects:</h2>
+
+<h3>
+
+<ul>
+
+<li>
+
+	<a href="P1/Packet1.html">Packet 1</a>
+
+</li>
+
+<li>
+
+	<a href="P2/">Packet 2</a>
+
+</li>	
+
+<li>
+
+	<a href="P3/">Packet 3</a>
+</li>
+<li>
+	<a href="chat/">Chat</a>
+</li>
+</ul>
+
+</h3>
+</div>
+
+<canvas id="canvas"></canvas>
+
+</body>
+
+<script>
+
+var canvas = document.getElementById("canvas");
+
+var dia1 = canvas.getContext('2d');
+
+var dia1top = 0;
+
+var dia2 = canvas.getContext('2d');
+
+var dia2top = 0;
+
+var dia3;
+
+var dia4;
+
+var dia5;
+
+var w = window.innerWidth;
+
+var h = window.innerHeight;
+
+function draw(){
+
+	dia1.beginPath();
+
+	dia1.lineWidth = 5;
+	if(blck){
+	dia1.strokeStyle = "#000000";
+	}else{
+	dia1.strokeStyle = "#FFFFFF";
+	}
+	dia1.moveTo( 150, 75 + dia1top);
+	dia1.lineTo( 150 + dia1top, 75);
+	dia1.lineTo( 150, 75 - dia1top);
+	dia1.lineTo( 150 - dia1top, 75);
+	//dia1.lineTo( 50 , 100);
+//alert( w + "," + h + "," + dia1top + "," + dia1bot );
+	dia1.closePath();
+	dia1.stroke();
+}
+
+var blck = true;
+
+function start(){
+
+setInterval(function(){
+		
+		dia1top+=.5;
+		
+		if(dia1top >= 221){
+			dia1top = 0;
+			if(blck){
+				blck = false;
+			}else{
+				blck = true;
+			}
+		}
+		
+		draw();
+
+}, 1)}
+
+</script>
+
+</html>
+

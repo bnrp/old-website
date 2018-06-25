@@ -1,0 +1,164 @@
+<!doctype HTML>
+<html>
+<head>
+<title>Tic Tac Toe</title>
+<link rel="stylesheet" type="text/css" href="styleo.css">
+<video id="vid" width="100%" height="100%" autoplay loop>
+  <source src="money.mp4" type="video/mp4">
+</video>
+</head>
+<script>
+var turnO = true;
+var win = false;
+var who;
+function xOrO(c){
+	if(turnO){
+		if(getOc(c) == false && win == false){
+			occupado(c);
+			document.getElementById(c + "").innerHTML = "O";
+			winQuestionMark()
+			turnO = false;
+		}else{
+			alert("Try Again!");
+		}
+	}else if(turnO == false && win == false){
+		if(getOc(c) == false){
+		occupado(c);
+			document.getElementById(c  + "").innerHTML = "X";
+			winQuestionMark()
+			turnO = true;
+		}else{
+			alert("Try Again!")
+		}
+	}
+}
+var o11 = false;
+var o12 = false;
+var o13 = false;
+var o21 = false;
+var o22 = false;
+var o23 = false;
+var o31 = false;
+var o32 = false;
+var o33 = false;
+function occupado(c){
+	switch(c){
+		case 11:
+			o11 = true;
+			break;
+		case 12:
+			o12 = true;
+			break;
+		case 13:
+			o13 = true;
+			break;
+		case 21:
+			o21 = true;
+			break;
+		case 22:
+			o22 = true;
+			break;
+		case 23:
+			o23 = true;
+			break;
+		case 31:
+			o31 = true;
+			break;
+		case 32:
+			o32 = true;
+			break;
+		case 33:
+			o33 = true;
+			break;
+	}
+}
+function getOc(c){
+	switch(c){
+		case 11:
+			return o11;
+			break;
+		case 12:
+			return o12;
+			break;
+		case 13:
+			return o13;
+			break;
+		case 21:
+			return o21;
+			break;
+		case 22:
+			return o22;
+			break;
+		case 23:
+			return o23;
+			break;
+		case 31:
+			return o31;
+			break;
+		case 32:
+			return o32;
+			break;
+		case 33:
+			return o33;
+			break;
+	}
+}
+function winQuestionMark(){
+	if((document.getElementById("11").innerHTML == "O" && document.getElementById("12").innerHTML == "O" && document.getElementById("13").innerHTML == "O") || (document.getElementById("11").innerHTML == "O" && document.getElementById("21").innerHTML == "O" && document.getElementById("31").innerHTML == "O") || (document.getElementById("11").innerHTML == "O" && document.getElementById("22").innerHTML == "O" && document.getElementById("33").innerHTML == "O") || (document.getElementById("12").innerHTML == "O" && document.getElementById("22").innerHTML == "O" && document.getElementById("32").innerHTML == "O") || (document.getElementById("13").innerHTML == "O" && document.getElementById("23").innerHTML == "O" && document.getElementById("33").innerHTML == "O") || (document.getElementById("13").innerHTML == "O" && document.getElementById("22").innerHTML == "O" && document.getElementById("31").innerHTML == "O") || (document.getElementById("31").innerHTML == "O" && document.getElementById("32").innerHTML == "O" && document.getElementById("33").innerHTML == "O") || (document.getElementById("22").innerHTML == "O" && document.getElementById("21").innerHTML == "O" && document.getElementById("23").innerHTML == "O")){
+		win = true;
+		who = "O WINS!";
+		alert(who);
+	}else if((document.getElementById("11").innerHTML == "X" && document.getElementById("12").innerHTML == "X" && document.getElementById("13").innerHTML == "X") || (document.getElementById("11").innerHTML == "X" && document.getElementById("21").innerHTML == "X" && document.getElementById("31").innerHTML == "X") || (document.getElementById("11").innerHTML == "X" && document.getElementById("22").innerHTML == "X" && document.getElementById("33").innerHTML == "X") || (document.getElementById("12").innerHTML == "X" && document.getElementById("22").innerHTML == "X" && document.getElementById("32").innerHTML == "X") || (document.getElementById("13").innerHTML == "X" && document.getElementById("23").innerHTML == "X" && document.getElementById("33").innerHTML == "X") || (document.getElementById("13").innerHTML == "X" && document.getElementById("22").innerHTML == "X" && document.getElementById("31").innerHTML == "X") || (document.getElementById("31").innerHTML == "X" && document.getElementById("32").innerHTML == "X" && document.getElementById("33").innerHTML == "X") || (document.getElementById("22").innerHTML == "X" && document.getElementById("21").innerHTML == "X" && document.getElementById("23").innerHTML == "X")){
+		win = true;
+		who = "X WINS!";
+		alert(who);
+	}
+}
+function reset(){
+	o11 = false;
+	o12 = false;
+	o13 = false;
+	o21 = false;
+	o22 = false;
+	o23 = false;
+	o31 = false;
+	o32 = false;
+	o33 = false;
+	win = false;
+	turnO = true;
+	document.getElementById("11").innerHTML = "";
+	document.getElementById("12").innerHTML = "";
+	document.getElementById("13").innerHTML = "";
+	document.getElementById("21").innerHTML = "";
+	document.getElementById("22").innerHTML = "";
+	document.getElementById("23").innerHTML = "";
+	document.getElementById("31").innerHTML = "";
+	document.getElementById("32").innerHTML = "";
+	document.getElementById("33").innerHTML = "";
+}
+</script>
+<body>
+<center>
+<h1>TICO TACO TOEO</h1>
+<table>
+	<tr>
+		<td id="11" onClick="xOrO(11)"></td>
+		<td id="12" onClick="xOrO(12)"></></td>
+		<td id="13" onClick="xOrO(13)"></></td>
+	</tr>
+	<tr>
+		<td id="21" onClick="xOrO(21)"></></td>
+		<td id="22" onClick="xOrO(22)"></</td>
+		<td id="23" onClick="xOrO(23)"></></td>
+	</tr>
+	<tr>
+		<td id="31" onClick="xOrO(31)"></></td>
+		<td id="32" onClick="xOrO(32)"></></td>
+		<td id="33" onClick="xOrO(33)"></></td>
+	</tr>
+</table>
+<br><br>
+<button id="reset" onClick="reset()">Reset</button>
+</center>
+</body>
+</html>

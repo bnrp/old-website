@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Login</title>
+		<script>
+		 var xhr = new XMLHttpRequest;
+			function postData(){
+				var xhr = new XMLHttpRequest;
+				var un = document.getElementById("usesrname").value;
+				var pw = document.getElementById("pasw").value;
+				if(window.XMLHttpRequest){
+					xhr = new XMLHttpRequest();
+				}else if(window.ActiveXObject){
+					xhr = new ActiveXObject("Msxml2.XMLHTTP");
+				}else{
+					throw new Error("Ajax is not supported by this browser");
+				}
+				
+				xhr.onreadystatechange = function(){
+				if(xhr.readyState === 4){
+					if(xhr.status == 200 && xhr.status < 300){
+						document.getElementById("noice").innerHTML = xhr.responseText;
+						if(xhr.responseText == "change"){	
+							var d = new Date();
+							d.setTime(d.getTime() + (7*24*60*60*1000));
+							var expires = "expires="+d.toUTCString();
+							document.cookie="username=" + un + "; " + expires + "; " + "path=/students2/ben/chat/;";
+							window.location.href = "http://mrsawyer.info/students2/ben/chat/";
+						}
+					}
+				}
+				}
+				
+				xhr.open('POST', 'login.php');
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.send("username=" + un + "&psw=" + pw);	
+				
+			}
+		</script>
+	</head>
+	<body>
+		<form method="POST">
+			Username:
+			<input type="text" id="usesrname" name="username" required><br>
+			Password:
+			<input type="password" id="pasw" name="psw"><br>
+			<input type="submit" value="Submit" onClick="postData()">
+		</form>
+		<div id="noice"></div>
+		<br>
+		<a href="create.html">Don't have an account?</a>	
+	</body>
+</html>

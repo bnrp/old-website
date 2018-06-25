@@ -1,0 +1,5 @@
+[15-Mar-2015 08:49:04] PHP Warning:  file_get_contents(chatlog.txt) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /home4/mrsawye2/public_html/students2/ben/chat/update.php on line 2
+[15-Mar-2015 08:49:04] PHP Warning:  implode() [<a href='function.implode'>function.implode</a>]: Argument must be an array in /home4/mrsawye2/public_html/students2/ben/chat/update.php on line 3
+[15-Mar-2015 08:49:53] PHP Warning:  file_get_contents(chatlog.txt) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /home4/mrsawye2/public_html/students2/ben/chat/update.php on line 2
+[15-Mar-2015 08:49:53] PHP Warning:  implode() [<a href='function.implode'>function.implode</a>]: Argument must be an array in /home4/mrsawye2/public_html/students2/ben/chat/update.php on line 3
+[15-Mar-2015 08:49:56] PHP Warning:  implode() [<a href='function.implode'>function.implode</a>]: Argument must be an array in /home4/mrsawye2/public_html/students2/ben/chat/chat.php on line 9

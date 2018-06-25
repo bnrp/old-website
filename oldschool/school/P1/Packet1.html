@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<!-- This is a program -->
+<head>
+<title>
+Packet 1 Final
+</title>
+</head>
+<body>
+
+Bid for #1: <input type="number" id="no1B">
+<button onClick="giveNum()">Submit</button>
+
+<br>
+
+Bid for #2: <input type="number" id ="no1A">
+<button onClick="giveNum1()">Submit</button>
+
+<hr>
+<table border="1">
+	<tr>
+		<td>
+			<img src = "awww yeaaaaaaaaa.jpg" width="300" height = "237" alt="Dolla dolla bill yall">
+		</td>
+		<td>
+		<ol>
+			<li>Description: Dolla <a href = "dolla.html">dolla</a>(<-- Link right there) bill yall</li>
+			<li>Starting bid: 300 Zimbabwean Dollars</li>	
+		</ol> 
+		Current bid: <p id="display1">300 Zimbabwean Dollars</p> 
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<ul>
+			<li>Description: <u>This is guido</u><a href = "http://mrsawyer.org/students2/kyle/">.</a></li>
+			<li>Starting bid: 1500 Zimbabwean Dollars</li>
+		</ul>
+		Current bid: <p id="display2">1500 Zimbabwean Dollars</p> 
+		</td>
+		<td>
+			<img src = "guido.jpg" width="504" height = "360" alt="Dolla dolla bill yall">
+		</td>
+	</tr>
+</table>
+<script>
+var num1=300;
+var x;
+function giveNum(){
+x= document.getElementById("no1B").value;
+if(x > num1){
+num1 = x;
+document.getElementById("display1").innerHTML = num1 + " Zimbabwean Dollars";
+}
+}
+var num2=1500;
+var y;
+function giveNum1(){
+y= document.getElementById("no1A").value;
+if(x > num2){
+num2 = y;
+document.getElementById("display2").innerHTML = num2 + " Zimbabwean Dollars";
+}
+}
+</script>
+</body>
+</html>

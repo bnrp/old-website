@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<script>
+			function postData(){
+				var xhr = new XMLHttpRequest;
+				var un = document.getElementById("usesrname").value;
+				var pw = document.getElementById("pasw").value;
+				if(window.XMLHttpRequest){
+					xhr = new XMLHttpRequest();
+				}else if(window.ActiveXObject){
+					xhr = new ActiveXObject("Msxml2.XMLHTTP");
+				}else{
+					throw new Error("Ajax is not supported by this browser");
+				}
+				
+				xhr.onreadystatechange = function(){
+				if(xhr.readyState === 4){
+					if(xhr.status == 200 && xhr.status < 300){
+						document.getElementById('noice').innerHTML = xhr.responseText;
+					}
+				}
+				}
+				
+				xhr.open('POST', 'create.php');
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhr.send("username=" + un + "&psw=" + pw);	
+			}
+			
+			
+				
+		</script>
+	</head>
+	<body>
+		<form method="POST">
+			Username:
+			<input type="text" id="usesrname" name="username" required><br>
+			Password:
+			<input type="password" id="pasw" name="psw" required><br>
+			<input type="submit" value="Submit" onClick="postData()">
+		</form>
+		<div id="noice"></div>
+	</body>
+</html>
