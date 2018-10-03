@@ -13,9 +13,19 @@
   src: url(Playfair_Display/PlayfairDisplay-Regular.ttf) format("truetype")
 }
 
+@font-face {
+  font-family: "PT_Mono";
+  src: url(PT_Mono/PTM55FT.ttf) format("truetype")
+}
+
+@font-face {
+  font-family: "bitter-ht";
+  src: url(bitter-ht/Bitter-Regular.ttf) format("truetype")
+}
+
 h1 { font-family: "Playfair_Display", sans-serif }
 
-body { font-family: "Playfair_Display", sans-serif;
+body { font-family: "PT_Mono", sans-serif;
        background-color: #213f52 }
 
 .title {
