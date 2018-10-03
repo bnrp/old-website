@@ -14,6 +14,7 @@ body { font-family: "monaco", sans-serif;
        background-color: #213f52 }
 
 .title {
+    color: #f2db2e;
     font-size:4em;
     background-image: linear-gradient(90deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
     background-size: 300% 100%;
