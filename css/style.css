@@ -8,9 +8,14 @@
   src: url(monaco/monaco.ttf) format("truetype")
 }
 
-h1 { font-family: "monaco", sans-serif }
+@font-face {
+  font-family: "playfair_display";
+  src: url(Playfair_Display/PlayfairDisplay-Regular.tff) format("truetype")
+}
 
-body { font-family: "monaco", sans-serif;
+h1 { font-family: "playfair_display", sans-serif }
+
+body { font-family: "playfair_display", sans-serif;
        background-color: #213f52 }
 
 .title {
