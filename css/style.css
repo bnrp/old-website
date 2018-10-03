@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "playfair_display";
-  src: url(Playfair_Display/PlayfairDisplay-Regular.tff) format("truetype")
+  src: url(Playfair_Display/PlayfairDisplay-Regular.ttf) format("truetype")
 }
 
 h1 { font-family: "playfair_display", sans-serif }
