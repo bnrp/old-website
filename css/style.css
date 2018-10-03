@@ -11,4 +11,22 @@
 h1 { font-family: "monaco", sans-serif }
 
 body { font-family: "monaco", sans-serif;
-       background-color: #676d5f }
+       background-color: #213f52 }
+
+.title {
+    font-size:4em;
+    background-image: linear-gradient(90deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
+    background-size: 300% 100%;
+    animation: Anim 5s linear infinite;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    text-shadow: -3px -3px {TitleColor};
+}
+
+@keyframes Anim { 
+    0%{background-position:0% 0%}
+    30%{background-position:50% 0%}
+    50%{background-position:100% 0%}
+    70%{background-position:50% 0%}
+    100%{background-position:0% 0%}
+}
