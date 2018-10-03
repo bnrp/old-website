@@ -21,7 +21,7 @@ body { font-family: "monaco", sans-serif;
     animation: Anim 5s linear infinite;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    text-shadow: -5px -5px #f2db2e;
+    text-shadow: -3px -3px #f2db2e;
 }
 
 @keyframes Anim { 
