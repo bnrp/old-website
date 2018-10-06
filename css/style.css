@@ -23,7 +23,7 @@
   src: url(bitter-ht/Bitter-Regular.ttf) format("truetype")
 }
 
-h1 { font-family: "Playfair_Display", sans-serif }
+h1, h2 { font-family: "Playfair_Display", sans-serif }
 
 body { font-family: "PT_Mono", sans-serif;
        background-color: #213f52 }
