@@ -11,9 +11,21 @@
   <meta name="description" content="placeholder">
   <meta name="Ben Rippley" content="placeholder">
 	
+  <script type="text/javascript" src="/js/brython/brython.js"></script>
+	
 </head>
 
 <body>
   <h1 class="title" align="center">Привет</h1>
+
+  <script type="text/python">
+     from browser import document, alert
+
+     def echo(event):
+        alert(document["zone"].value)
+
+     document["mybutton"].bind("click", echo)
+  </script>
+	
 </body>
 </html>
