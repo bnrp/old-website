@@ -15,7 +15,7 @@
 	
 </head>
 
-<body>
+<body onload="brython()">
   <h1 class="title" align="center">Привет</h1>
 
   <script type="text/python">
@@ -26,6 +26,8 @@
 
      document["mybutton"].bind("click", echo)
   </script>
+
+  <input id="zone"><button id="mybutton">click !</button>	
 	
 </body>
 </html>
