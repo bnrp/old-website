@@ -23,10 +23,14 @@
   src: url(bitter-ht/Bitter-Regular.ttf) format("truetype")
 }
 
-h1, h2 { font-family: "Playfair_Display", sans-serif }
+h1, h2 { 
+    font-family: "Playfair_Display", sans-serif 
+}
 
-body { font-family: "PT_Mono", sans-serif;
-       background-color: #213f52 }
+body { 
+    font-family: "PT_Mono", sans-serif;
+    background-color: #213f52 
+}
 
 .title {
     color: #f2db2e;
@@ -45,4 +49,28 @@ body { font-family: "PT_Mono", sans-serif;
     50%{background-position:100% 0%}
     70%{background-position:50% 0%}
     100%{background-position:0% 0%}
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    border-bottom: 2px solid;
+    padding-bottom: 5px;
 }
