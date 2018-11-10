@@ -27,6 +27,11 @@ h1, h2 {
     font-family: "Playfair_Display", sans-serif;
 }
 
+h2 {
+  padding-top: 30px;
+  padding-left: 60px;
+}
+
 body { 
     font-family: "Playfair_Display", sans-serif;
     background-color: #061928; //#360000
