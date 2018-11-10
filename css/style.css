@@ -55,26 +55,28 @@ nav {
     text-align: center;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
+.menu {
+    font-size: 1.1em;
+    display: inline-block;
     text-align: center;
-    padding: 16px;
+    padding: 40px;
     text-decoration: none;
+    color: #f2db2e;
 }
 
-li a:hover {
-    border-bottom: 2px solid;
-    padding-bottom: 5px;
+.menu::after {
+    display:block;
+    content: '';
+    border-bottom: solid 1px #f2db2e;  
+    transform: scaleX(0);  
+    transition: transform .2s ease-in-out;
+}
+
+.menu:hover::after {
+    width: 100%;
+    transform: scaleX(1);
+}
+
+#no-ul {
+    text-decoration: none;
 }
