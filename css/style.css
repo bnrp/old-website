@@ -30,6 +30,8 @@ h1, h2 {
 body { 
     font-family: "PT_Mono", sans-serif;
     background-image: url("/images/wallpaper.jpg");
+    background-size:100% 100%;
+    background-repeat: no-repeat;
 }
 
 .title {
