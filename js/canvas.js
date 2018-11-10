@@ -65,6 +65,8 @@ for(i = 0; i < 1000; i++){
 }
 
 function draw() {  
+  ctx.canvas.width = window.innerWidth;
+  ctx.canvas.height = window.innerHeight;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
   for(i = 0; i < 1000; i++){
