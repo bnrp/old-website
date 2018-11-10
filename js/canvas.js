@@ -167,7 +167,7 @@ for (let item of anchorlinks) { // relitere
         let hashval = item.getAttribute('href');
         let target = document.querySelector(hashval);
         target.scrollIntoView({
-            behavior: 'smooth',
+            behavior: 'smooth', block: "start", inline: "nearest",
         })
         history.pushState(null, null, hashval);
         e.preventDefault();
