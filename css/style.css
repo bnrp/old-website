@@ -43,7 +43,7 @@ body {
     animation: Anim 5s linear infinite;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    text-shadow: -2px -2px #8c3535; // Used to be 3px and #f2db2e;
+    text-shadow: -3px -3px #8c3535;
 }
 
 @keyframes Anim { 
@@ -94,8 +94,24 @@ nav {
   position: fixed;
   left: 0;
   top: 0;
+  border: 1px solid black;
   text-align: center;
   font-weight: bold;
-  z-index: -1;
+  z-index: 0;
   background-color: transparent;
+}
+
+#canvas2 {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  z-index: -1;
+}
+
+#everything {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  width: 100%;
 }
