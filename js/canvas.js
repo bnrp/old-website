@@ -2,14 +2,14 @@
 var canvas = document.querySelector("#canvas");
 var ctx = canvas.getContext("2d");
 
-var home = document.getElementById("home");
+var home = null;
 
 // Functions
 function start() {
   ctx.canvas.width = window.innerWidth;
   ctx.canvas.height = window.innerHeight;
   
-  draw()
+  setInterval(draw, 30);
 }
 
 function rainDrop() {
@@ -25,6 +25,7 @@ function rainDrop() {
   
   this.draw = function() {
     this.rand = Math.random() * 101+ 1;
+    home = document.getElementById("home");
     if(this.y == 0 && this.rand > 99 && (isElementInViewport(home) == true)) {
       ctx.beginPath();
       ctx.moveTo(this.x, this.y);
@@ -80,5 +81,3 @@ function isElementInViewport(el) {
     rect.right <= (window.innerWidth || document. documentElement.clientWidth)
   );
 }
-
-setInterval(draw, 30);
