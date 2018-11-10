@@ -2,12 +2,18 @@
 var canvas = document.querySelector("#canvas");
 var ctx = canvas.getContext("2d");
 
+var canvas2 = document.querySelector("#canvas2");
+var ct2 = document.querySelector("#canvas2").getContext("2d");
+
 var home = null;
 
 // Functions
 function start() {
   ctx.canvas.width = window.innerWidth;
   ctx.canvas.height = window.innerHeight;
+  
+  ct2.canvas.width = window.innerWidth;
+  ct2.canvas.height = window.innerHeight;
   
   setInterval(draw, 30);
 }
