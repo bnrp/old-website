@@ -29,7 +29,7 @@ h1, h2 {
 
 body { 
     font-family: "PT_Mono", sans-serif;
-    background-color: #213f52; 
+    background-image: url("/images/wallpaper.jpg");
 }
 
 .title {
