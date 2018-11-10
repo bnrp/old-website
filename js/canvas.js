@@ -2,6 +2,8 @@
 var canvas = document.querySelector("#canvas");
 var ctx = canvas.getContext("2d");
 
+var home = document.getElementById("home");
+
 // Functions
 function start() {
   ctx.canvas.width = window.innerWidth;
@@ -23,7 +25,7 @@ function rainDrop() {
   
   this.draw = function() {
     this.rand = Math.random() * 101+ 1;
-    if(this.y == 0 && this.rand > 99) {
+    if(this.y == 0 && this.rand > 99 && (isElementInViewport(home) == true)) {
       ctx.beginPath();
       ctx.moveTo(this.x, this.y);
       ctx.lineTo(this.x + this.endX, this.y + this.endY);
@@ -67,6 +69,16 @@ function draw() {
   for(i = 0; i < 1000; i++){
     drops[i].draw();
   }
+}
+
+function isElementInViewport(el) {
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top >= -rect.height &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document. documentElement.clientWidth)
+  );
 }
 
 setInterval(draw, 30);
