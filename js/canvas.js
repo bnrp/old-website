@@ -7,6 +7,12 @@ var ct2 = document.querySelector("#canvas2").getContext("2d");
 
 var home = null;
 
+var it1 = 0;
+var it12 = 1;
+
+var yn = 1;
+var yncount = 0;
+
 // Functions
 function start() {
   ctx.canvas.width = window.innerWidth;
@@ -30,17 +36,26 @@ function segment(startX, startY) {
   this.endY = this.startY + this.length * Math.cos(this.theta);
 }
 
-function strand(startX, startY) {
+function strand(startX, startY, index) {
   this.startX = startX;
   this.startY = startY;
+  
+  this.index = index;
   
   this.X = startX;
   this.Y = startY;
   
-  this.segLen = Math.random() * 15 + 35;
+  this.it = 0;
+  this.it2 = 1;
+  
+  this.opacity = .7;
+  
+  this.segLen = Math.random() * 20 + 35;
   
   this.segments = [this.segLen];
   this.segments[0] = new segment(this.startX, this.startY);
+  
+  this.thickness = Math.random() * 1.8 + .7;
   
   for(var i = 1; i < this.segLen; i++){
     this.segments[i] = new segment(this.segments[i-1].endX, this.segments[i-1].endY);
@@ -51,15 +66,36 @@ function strand(startX, startY) {
   }
   
   this.draw = function() {
-    ct2.beginPath();
-    ct2.moveTo(this.startX, this.startY);
-    for(var i = 0; i < this.segLen; i++){
-      ct2.lineTo(this.segments[i].endX, this.segments[i].endY);
-    }
-    ct2.lineWidth = 3;
-    ct2.strokeStyle = "yellow";
-    ct2.stroke();
+    drawLight(this);
   }
+}
+
+function drawLight(x){
+  ct2.beginPath();
+  
+    for(var i = 0; i < x.it; i++){
+      ct2.moveTo(x.segments[i].startX, x.segments[i].startY);
+      ct2.lineTo(x.segments[i].endX, x.segments[i].endY);
+      ct2.lineWidth = x.thickness;
+      ct2.strokeStyle = "rgba(255,255,204, " + x.opacity + ")";
+    }
+  
+    ct2.moveTo(x.segments[x.it].startX, x.segments[x.it].startY);
+    ct2.lineTo(x.segments[x.it].startX + x.it2 * Math.sin(x.segments[x.it].theta),x.segments[x.it].startY + x.it2 * Math.cos(x.segments[x.it].theta));
+    ct2.lineWidth = x.thickness;
+    ct2.strokeStyle = "rgba(255,255,204, " + x.opacity + ")";
+    ct2.stroke();
+    
+    if(x.it2 <= x.segments[x.it].length && x.it+1 < x.segLen){
+      x.it += 1;
+      x.it2 = 1;
+    }else{
+      if(x.opacity == 0){
+        
+      }else{
+        x.opacity -= .07;
+      }
+    }
 }
 
 function lightning() {
@@ -71,14 +107,12 @@ function lightning() {
   this.strands = [this.spread];
   
   for(var i = 0; i < this.spread; i++){
-    this.strands[i] = new strand(this.startX, this.startY);
+    this.strands[i] = new strand(this.startX, this.startY, i);
   }
   
   this.draw = function() {
-    if (isElementInViewport(home, 0)){
-      for(var i = 0; i < this.spread; i++){
-        this.strands[i].draw();
-      }
+    for(var i = 0; i < this.spread; i++){
+      this.strands[i].draw();
     }
   }
 }
@@ -136,18 +170,49 @@ for(i = 0; i < 1000; i++){
   drops[i] = new rainDrop();
 }
 
+function lightLoop() {
+  
+  if(isElementInViewport(home, 0)){
+    if(yn){
+      this.rand = Math.floor(Math.random() * 299 + 1);
+    }
+    
+    if(true){
+      canvas2.style.opacity = 1;
+      canvas2.style.backgroundColor = "transparent";
+    }
+      
+    if(this.rand == 1){
+      x = new lightning(); 
+      this.rand = 2;
+      yn = 0;
+      canvas2.style.opacity = .3;
+      canvas2.style.backgroundColor = "#ffffcc";
+    }
+
+    if(yncount == 150){
+      yn = 1;
+      yncount = 0;
+    }else if(yn == 0){
+      yncount += 1;
+    }
+  }  
+  x.draw();
+}
+
 function draw() {  
   ctx.canvas.width = window.innerWidth;
   ctx.canvas.height = window.innerHeight;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ct2.clearRect(0, 0, canvas.width, canvas.height);
   
+  // Draws Rain
   for(i = 0; i < 1000; i++){
     drops[i].draw();
   }
   
-  //x = new lightning();  
-  //x.draw();
+  // Creates Loop for lightning animations
+  lightLoop();
 }
 
 function isElementInViewport(el, top) {
@@ -167,7 +232,7 @@ for (let item of anchorlinks) { // relitere
         let hashval = item.getAttribute('href');
         let target = document.querySelector(hashval);
         target.scrollIntoView({
-            behavior: 'smooth', block: "start", inline: "nearest",
+            behavior: 'smooth',
         })
         history.pushState(null, null, hashval);
         e.preventDefault();
