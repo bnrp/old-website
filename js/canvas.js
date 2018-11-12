@@ -24,7 +24,7 @@ function start() {
   setInterval(draw, 30);
 }
 
-//LIGHTNING WIP
+//Lightning
 function segment(startX, startY) {
   this.startX = startX;
   this.startY = startY;
@@ -117,7 +117,7 @@ function lightning() {
   }
 }
 
-// RAIN
+// Rain
 function rainDrop() {
   this.x = Math.random() * window.innerWidth;
   this.y = 0;
@@ -196,7 +196,9 @@ function lightLoop() {
     }else if(yn == 0){
       yncount += 1;
     }
-    x.draw();
+    if(x != null){
+      x.draw();
+    }
   }else{
     x = null;
   }  
