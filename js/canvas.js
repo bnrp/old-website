@@ -228,15 +228,15 @@ function isElementInViewport(el, top, andor) {
     return (
       rect.top >= top &&
       rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document. documentElement.clientWidth)
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }else if(andor == "or"){
     return (
       (rect.top >= top ||
-      rect.bottom <= (window.innerHeight || document. documentElement.clientHeight)) &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)) &&
       rect.left >= 0 &&
-      rect.right <= (window.innerWidth || document. documentElement.clientWidth)
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }
 }
