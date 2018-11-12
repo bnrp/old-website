@@ -233,8 +233,10 @@ function isElementInViewport(el, top, andor) {
     );
   }else if(andor == "or"){
     return (
-      (rect.bottom <= window.innerHeight || 
-      rect.bottom <= document.documentElement.clientHeight)
+      rect.left >= 0 &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+      (rect.top >= top ||
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
     );
   }
 }
