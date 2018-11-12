@@ -88,7 +88,7 @@ function drawLight(x){
     ct2.strokeStyle = "rgba(255,255,204, " + x.opacity + ")";
     ct2.stroke();
     
-    if(x.it2 <= x.segments[x.it].length && x.it+1 < x.segLen){
+    if(x.it2 <= x.segments[x.it].length && x.it+1 < x.segLen && x.segments.[x.it+1] != null){
       x.it += 1;
       x.it2 = 1;
     }else{
@@ -117,6 +117,41 @@ function lightning() {
       this.strands[i].draw();
     }
   }
+}
+
+function lightLoop() {
+  
+  if(isElementInViewport(home, 0, "and")){
+    if(yn){
+      this.rand = Math.floor(Math.random() * 299 + 1);
+    }
+    
+    if(true){
+      canvas2.style.opacity = 1;
+      canvas2.style.backgroundColor = "transparent";
+    }
+      
+    if(this.rand == 1){
+      x = new lightning(); 
+      this.rand = 2;
+      yn = 0;
+      canvas2.style.opacity = .3;
+      canvas2.style.backgroundColor = "#ffffcc";
+    }
+
+    if(yncount == 150){
+      yn = 1;
+      yncount = 0;
+    }else if(yn == 0){
+      yncount += 1;
+    }
+    if(x != null){
+      x.draw();
+    }
+  }else{
+    x = null;
+  }  
+  
 }
 
 // Rain
@@ -170,41 +205,6 @@ var drops = [1000];
 
 for(i = 0; i < 1000; i++){
   drops[i] = new rainDrop();
-}
-
-function lightLoop() {
-  
-  if(isElementInViewport(home, 0, "and")){
-    if(yn){
-      this.rand = Math.floor(Math.random() * 299 + 1);
-    }
-    
-    if(true){
-      canvas2.style.opacity = 1;
-      canvas2.style.backgroundColor = "transparent";
-    }
-      
-    if(this.rand == 1){
-      x = new lightning(); 
-      this.rand = 2;
-      yn = 0;
-      canvas2.style.opacity = .3;
-      canvas2.style.backgroundColor = "#ffffcc";
-    }
-
-    if(yncount == 150){
-      yn = 1;
-      yncount = 0;
-    }else if(yn == 0){
-      yncount += 1;
-    }
-    if(x != null){
-      x.draw();
-    }
-  }else{
-    x = null;
-  }  
-  
 }
 
 function draw() {  
