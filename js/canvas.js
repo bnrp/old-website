@@ -196,8 +196,11 @@ function lightLoop() {
     }else if(yn == 0){
       yncount += 1;
     }
+    x.draw();
+  }else{
+    x = null;
   }  
-  x.draw();
+  
 }
 
 function draw() {  
