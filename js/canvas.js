@@ -7,6 +7,8 @@ var ct2 = document.querySelector("#canvas2").getContext("2d");
 
 var home = null;
 
+var x = null;
+
 var it1 = 0;
 var it12 = 1;
 
