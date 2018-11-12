@@ -88,7 +88,7 @@ function drawLight(x){
     ct2.strokeStyle = "rgba(255,255,204, " + x.opacity + ")";
     ct2.stroke();
     
-    if(x.it2 <= x.segments[x.it].length && x.it+1 < x.segLen && x.segments.[x.it+1] != null){
+    if(x.it2 <= x.segments[x.it].length && x.it+1 < x.segLen && x.segments[x.it+1] != null){
       x.it += 1;
       x.it2 = 1;
     }else{
