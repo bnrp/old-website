@@ -134,7 +134,7 @@ function rainDrop() {
   this.draw = function() {
     this.rand = Math.random() * 101+ 1;
     home = document.getElementById("home");
-    if(this.y == 0 && this.rand > 99 && (isElementInViewport(home, -home.getBoundingClientRect().height) == true || isElementInViewport(home, 1) == true)) {
+    if(this.y == 0 && this.rand > 99 && (isElementInViewport(home, -home.getBoundingClientRect().height, "and") == true || isElementInViewport(home, 1) == true, "or")) {
       ctx.beginPath();
       ctx.moveTo(this.x, this.y);
       ctx.lineTo(this.x + this.endX, this.y + this.endY);
@@ -174,7 +174,7 @@ for(i = 0; i < 1000; i++){
 
 function lightLoop() {
   
-  if(isElementInViewport(home, 0)){
+  if(isElementInViewport(home, 0, "and")){
     if(yn){
       this.rand = Math.floor(Math.random() * 299 + 1);
     }
@@ -222,14 +222,23 @@ function draw() {
   lightLoop();
 }
 
-function isElementInViewport(el, top) {
+function isElementInViewport(el, top, andor) {
   var rect = el.getBoundingClientRect();
-  return (
-    rect.top >= top &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document. documentElement.clientWidth)
-  );
+  if(andor == "and"){
+    return (
+      rect.top >= top &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document. documentElement.clientWidth)
+    );
+  }else if(andor == "or"){
+    return (
+      (rect.top >= top ||
+      rect.bottom <= (window.innerHeight || document. documentElement.clientHeight)) &&
+      rect.left >= 0 &&
+      rect.right <= (window.innerWidth || document. documentElement.clientWidth)
+    );
+  }
 }
 
 let anchorlinks = document.querySelectorAll('a[href^="#"]');
