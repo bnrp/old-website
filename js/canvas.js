@@ -134,7 +134,7 @@ function rainDrop() {
   this.draw = function() {
     this.rand = Math.random() * 101+ 1;
     home = document.getElementById("home");
-    if(this.y == 0 && this.rand > 99 && (isElementInViewport(home, -home.getBoundingClientRect().height) == true || isElementInViewport(home, 0) == true)) {
+    if(this.y == 0 && this.rand > 99 && (isElementInViewport(home, -home.getBoundingClientRect().height) == true || isElementInViewport(home, 1) == true)) {
       ctx.beginPath();
       ctx.moveTo(this.x, this.y);
       ctx.lineTo(this.x + this.endX, this.y + this.endY);
