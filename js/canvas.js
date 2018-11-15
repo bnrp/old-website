@@ -120,15 +120,14 @@ function lightning() {
 }
 
 function lightLoop() {
+  if(true){
+      canvas2.style.opacity = 1;
+      canvas2.style.backgroundColor = "transparent";
+    }
   
   if(isElementInViewport(home, 0, "and")){
     if(yn){
       this.rand = Math.floor(Math.random() * 299 + 1);
-    }
-    
-    if(true){
-      canvas2.style.opacity = 1;
-      canvas2.style.backgroundColor = "transparent";
     }
       
     if(this.rand == 1){
